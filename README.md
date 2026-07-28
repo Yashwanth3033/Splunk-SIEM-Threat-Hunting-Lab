@@ -84,6 +84,20 @@ Once the automated alert successfully triggered, I completed the incident respon
 * Eradicating the threat by terminating the suspicious process and permanently wiping the payload from the `$env:TEMP` directory.
 
 ---
+## 🚨 Automation: Building a SOC Alert
+
+To transition from manual hunting to automated defense, I engineered a custom Splunk alert based on the behavioral indicators of the attack. 
+
+Real-world attackers constantly change malware filenames, so I built the detection rule to trigger on any executable launching from the Windows Temp folder.
+
+**Custom SPL Detection Rule:**
+`index="main" EventCode=1 Image="*\\Temp\\*.exe"`
+
+**Alert Configuration:**
+* **Type:** Real-Time / Scheduled
+* **Trigger Condition:** Number of Results > 0
+* **Action:** Add to Triggered Alerts
+
 ><img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/ca2b7934-73fb-4db9-a635-6a9425161c76" />
 ><img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/b8e80ce1-77be-467f-b69f-751255ac8cf8" />
 
