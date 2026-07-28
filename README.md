@@ -72,7 +72,8 @@ Real-world attackers constantly change malware filenames, so I built the detecti
 index="main" EventCode=1 Image="*\\Temp\\*.exe"
 ```
 
-> **[Insert Screenshot of the Triggered Alerts dashboard in Splunk here]**
+> <img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/3c6a35e3-07e5-465b-ad19-fbb1e09a8384" />
+
 
 ---
 
