@@ -1,4 +1,3 @@
-# Splunk-SIEM-Threat-Hunting-Lab
 # Enterprise SIEM & Threat Hunting Automation Lab
 
 ## 🎯 Objective
@@ -48,7 +47,6 @@ index="main" EventCode=3 Image="*powershell.exe*" | table _time, Image, Destinat
 
 <img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/e5e72353-2ed0-4210-b5db-c0a67a3970c0" />
 
-
 ### Hunting Process Creation (Event ID 1)
 After confirming the download, I tracked the execution of the downloaded payload, confirming it was launched directly from the user's Temp folder.
 
@@ -56,8 +54,7 @@ After confirming the download, I tracked the execution of the downloaded payload
 index="main" EventCode=1 Image="*malware.exe*" | table _time, Image, CommandLine, User, ParentImage
 ```
 
-> <img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/c33599d3-9b7e-4c32-a0d6-1699c14585a7" />
-
+<img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/c33599d3-9b7e-4c32-a0d6-1699c14585a7" />
 
 ---
 
@@ -72,7 +69,14 @@ Real-world attackers constantly change malware filenames, so I built the detecti
 index="main" EventCode=1 Image="*\\Temp\\*.exe"
 ```
 
-> <img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/3c6a35e3-07e5-465b-ad19-fbb1e09a8384" />
+**Alert Configuration:**
+* **Type:** Real-Time / Scheduled
+* **Trigger Condition:** Number of Results > 0
+* **Action:** Add to Triggered Alerts
+
+<img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/ca2b7934-73fb-4db9-a635-6a9425161c76" />
+
+<img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/b8e80ce1-77be-467f-b69f-751255ac8cf8" />
 
 ---
 
@@ -84,23 +88,4 @@ Once the automated alert successfully triggered, I completed the incident respon
 * Eradicating the threat by terminating the suspicious process and permanently wiping the payload from the `$env:TEMP` directory.
 
 ---
-## 🚨 Automation: Building a SOC Alert
-
-To transition from manual hunting to automated defense, I engineered a custom Splunk alert based on the behavioral indicators of the attack. 
-
-Real-world attackers constantly change malware filenames, so I built the detection rule to trigger on any executable launching from the Windows Temp folder.
-
-**Custom SPL Detection Rule:**
-`index="main" EventCode=1 Image="*\\Temp\\*.exe"`
-
-**Alert Configuration:**
-* **Type:** Real-Time / Scheduled
-* **Trigger Condition:** Number of Results > 0
-* **Action:** Add to Triggered Alerts
-
-><img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/ca2b7934-73fb-4db9-a635-6a9425161c76" />
-><img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/b8e80ce1-77be-467f-b69f-751255ac8cf8" />
-
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------
 **Author:** Yashwanth H L
