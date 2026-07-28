@@ -84,7 +84,7 @@ Once the automated alert successfully triggered, I completed the incident respon
 * Eradicating the threat by terminating the suspicious process and permanently wiping the payload from the `$env:TEMP` directory.
 
 ---
-><img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/728f621e-e5e3-4e1c-bfba-e3a94f368f23" />
+><img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/ca2b7934-73fb-4db9-a635-6a9425161c76" />
 ><img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/b8e80ce1-77be-467f-b69f-751255ac8cf8" />
 
 
