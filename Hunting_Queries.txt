@@ -1,0 +1,26 @@
+// ====================================================================================
+// File: Hunting_Queries.txt
+// Author: Yashwanth H L
+// Description: Splunk Processing Language (SPL) queries used to hunt the simulated 
+//              LotL attack telemetry via Sysmon logs and build the automated SOC alert.
+// ====================================================================================
+
+// ------------------------------------------------------------------------------------
+// 1. Hunt Network Connections (Event ID 3)
+// Objective: Identify PowerShell reaching out to an external IP to download the payload.
+// ------------------------------------------------------------------------------------
+index="main" EventCode=3 Image="*powershell.exe*" | table _time, Image, DestinationIp, DestinationPort
+
+
+// ------------------------------------------------------------------------------------
+// 2. Hunt Process Creation (Event ID 1)
+// Objective: Track the execution of the downloaded payload from the Temp directory.
+// ------------------------------------------------------------------------------------
+index="main" EventCode=1 Image="*malware.exe*" | table _time, Image, CommandLine, User, ParentImage
+
+
+// ------------------------------------------------------------------------------------
+// 3. Custom SOC Alert: Suspicious Execution from Temp Folder
+// Objective: Automate detection of any executable launching from the Windows Temp folder.
+// ------------------------------------------------------------------------------------
+index="main" EventCode=1 Image="*\\Temp\\*.exe"
