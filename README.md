@@ -46,7 +46,8 @@ I queried the Sysmon logs to find the exact moment PowerShell reached out over t
 index="main" EventCode=3 Image="*powershell.exe*" | table _time, Image, DestinationIp, DestinationPort
 ```
 
-> **[Insert Screenshot of Splunk showing the EventCode 3 table results here]**
+<img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/e5e72353-2ed0-4210-b5db-c0a67a3970c0" />
+
 
 ### Hunting Process Creation (Event ID 1)
 After confirming the download, I tracked the execution of the downloaded payload, confirming it was launched directly from the user's Temp folder.
