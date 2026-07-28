@@ -74,7 +74,6 @@ index="main" EventCode=1 Image="*\\Temp\\*.exe"
 
 > <img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/3c6a35e3-07e5-465b-ad19-fbb1e09a8384" />
 
-
 ---
 
 ## 🧹 Incident Response & Remediation
@@ -85,4 +84,7 @@ Once the automated alert successfully triggered, I completed the incident respon
 * Eradicating the threat by terminating the suspicious process and permanently wiping the payload from the `$env:TEMP` directory.
 
 ---
+
+>><img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/728f621e-e5e3-4e1c-bfba-e3a94f368f23" />
+
 **Author:** Yashwanth H L
