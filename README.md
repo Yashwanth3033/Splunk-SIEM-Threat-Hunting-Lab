@@ -56,7 +56,8 @@ After confirming the download, I tracked the execution of the downloaded payload
 index="main" EventCode=1 Image="*malware.exe*" | table _time, Image, CommandLine, User, ParentImage
 ```
 
-> **[Insert Screenshot of Splunk showing the EventCode 1 table results here]**
+> <img width="1918" height="1080" alt="image" src="https://github.com/user-attachments/assets/c33599d3-9b7e-4c32-a0d6-1699c14585a7" />
+
 
 ---
 
